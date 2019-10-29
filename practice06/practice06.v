@@ -174,7 +174,7 @@ input			rst_n		;
 
 wire			gen_clk		;
 nco		u_nco(		.o_gen_clk	( gen_clk		),
-				.i_nco_num	( 32'd50000000		),
+				.i_nco_num	( 32'd50000		),
 				.clk		( clk			),
 				.rst_n		( rst_n			));
 
@@ -285,11 +285,6 @@ led_disp	u_led_disp(
 				.i_six_dp	( 6'd0 		),
 				.clk		(clk		),
 				.rst_n		(rst_n		));
-
-
-
-
-
 
 
 endmodule
