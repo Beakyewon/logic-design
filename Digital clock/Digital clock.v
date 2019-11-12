@@ -230,10 +230,10 @@ module	controller(
 		o_position,
 		o_sec_clk,
 		o_min_clk,
-		o_hr_clk, // sigan
+		o_hr_clk, // hour
 		i_max_hit_sec,
 		i_max_hit_min,
-		i_max_hit_hr, // sigan
+		i_max_hit_hr, // hour
 		i_sw0,
 		i_sw1,
 		i_sw2,
@@ -244,12 +244,11 @@ output		o_mode			;
 output		o_position		;
 output		o_sec_clk		;
 output		o_min_clk		;
-output		o_hr_clk		;
+output		o_hr_clk		; //hour
 
 input		i_max_hit_sec		;
 input		i_max_hit_min		;
-input		i_max_hit_hr		;
-
+input		i_max_hit_hr		; //hour
 
 input		i_sw0			;
 input		i_sw1			;
@@ -261,8 +260,9 @@ input		rst_n			;
 parameter	MODE_CLOCK = 1'b0	;
 parameter	MODE_SETUP = 1'b1	;
 
-parameter	POS_SEC	= 1'b0		;
-parameter	POS_MIN	= 1'b1		;
+parameter	POS_SEC	= 2'b00		;
+parameter	POS_MIN	= 2'b01		;
+parameter	POS_HR	= 2'b10		; //hour
 
 wire		clk_100hz		;
 nco		u0_nco(
@@ -298,10 +298,12 @@ always @(posedge sw0 or negedge rst_n) begin
 	end
 end
 
-reg		o_position		;
+reg	[1:0]	o_position		; // have to rewrite 
 always @(posedge sw1 or negedge rst_n) begin
 	if(rst_n == 1'b0) begin
 		o_position <= POS_SEC;
+	end else if (o_position == 2'b01) begin
+		o_position <= o_position + 1'b1;
 	end else begin
 		o_position <= o_position + 1'b1;
 	end
@@ -316,21 +318,30 @@ nco		u1_nco(
 
 reg		o_sec_clk		;
 reg		o_min_clk		;
+reg		o_hr_clk		;
 always @(*) begin
 	case(o_mode)
 		MODE_CLOCK : begin
 			o_sec_clk = clk_1hz;
 			o_min_clk = i_max_hit_sec;
+			o_hr_clk  = i_max_hit_min;
 		end
 		MODE_SETUP : begin
 			case(o_position)
 				POS_SEC : begin
 					o_sec_clk = ~sw2;
 					o_min_clk = 1'b0;
+					o_hr_clk  = 1'b0; //hour
 				end
 				POS_MIN : begin
 					o_sec_clk = 1'b0;
 					o_min_clk = ~sw2;
+					o_hr_clk  = 1'b0; //hour
+				end
+				POS_HR  : begin
+					o_sec_clk = 1'b0;
+					o_min_clk = 1'b0;
+					o_hr_clk  = ~sw2; //hour
 				end
 			endcase
 		end
@@ -338,6 +349,7 @@ always @(*) begin
 end
 
 endmodule
+
 
 //	--------------------------------------------------
 //	HMS(Hour:Min:Sec) Counter
