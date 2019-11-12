@@ -397,7 +397,7 @@ hms_cnt		u1_hms_cnt(
 hms_cnt		u2_hms_cnt(
 		.o_hms_cnt	( o_hr		),
 		.o_max_hit	( o_max_hit_hr	),
-		.i_max_cnt	( 6'd59		),
+		.i_max_cnt	( 6'd23		),
 		.clk		( i_hr_clk	),
 		.rst_n		( rst_n		));
 
@@ -456,6 +456,7 @@ hrminsec		u_hrminsec(	.o_sec		(o_sec),
 					.o_max_hit_hr	(i_max_hit_hr),
 					.i_sec_clk	(o_sec_clk),
 					.i_min_clk	(o_min_clk),
+					.i_hr_clk	(o_hr_clk),
 					.clk		(clk),
 					.rst_n		(rst_n));
 wire	[3:0]	o_left_0	;
@@ -476,7 +477,7 @@ wire	[3:0]	o_right_2	;
 double_fig_sep	u2_dfs(
 				.o_left		(o_left_2),
 				.o_right	(o_right_2),
-				.i_double_fig	(o_hour));
+				.i_double_fig	(o_hr));
 
 wire	[6:0]	o_seg_0		;
 wire	[6:0]	o_seg_1		;
