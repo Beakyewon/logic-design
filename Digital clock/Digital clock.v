@@ -212,11 +212,11 @@ reg		dly1_sw			;
 always @(posedge clk) begin
 	dly1_sw <= i_sw;
 end
-
+  
 reg		dly2_sw			;
 always @(posedge clk) begin
 	dly2_sw <= dly1_sw;
-end
+end 
 
 assign		o_sw = dly1_sw | ~dly2_sw;
 
@@ -302,10 +302,11 @@ reg	[1:0]	o_position		; // have to rewrite
 always @(posedge sw1 or negedge rst_n) begin
 	if(rst_n == 1'b0) begin
 		o_position <= POS_SEC;
-	end else if (o_position == 2'b01) begin
-		o_position <= o_position + 1'b1;
 	end else begin
 		o_position <= o_position + 1'b1;
+		if(o_position == 2'b10) begin
+			o_position <= POS_SEC;
+		end
 	end
 end
 
