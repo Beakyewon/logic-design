@@ -61,6 +61,43 @@ end
 endmodule
 
 //	--------------------------------------------------
+//	day of week display
+//	--------------------------------------------------
+/*module	day(
+		o_seg,
+		i_num);
+
+output	[6:0]	o_seg		;	// {o_seg_a, o_seg_b, ... , o_seg_g}
+
+input	[3:0]	i_num		;
+reg	[6:0]	o_seg		;
+//making
+always @(i_num) begin 
+ 	case(i_num) 
+ 		4'd0 : o_seg_A = 7'b111_1110	; 
+ 		4'd1 : o_seg_D = 7'b011_0000	; 
+ 		4'd2 : o_seg_E = 7'b110_1101	; 
+ 		4'd3 : o_seg_F = 7'b111_1001	; 
+ 		4'd4 : o_seg_H = 7'b011_0011	; 
+ 		4'd5 : o_seg_I = 7'b101_1011	; 
+ 		4'd6 : o_seg_M = 7'b101_1111	; 
+ 		4'd7 : o_seg_N = 7'b111_0000	; 
+ 		4'd8 : o_seg_O = 7'b111_1111	; 
+ 		4'd9 : o_seg_R = 7'b111_0011	; 
+ 		4'd10 : o_seg_S = 7'b111_0011	;
+ 		4'd11 : o_seg_T = 7'b111_0011	;
+ 		4'd12 : o_seg_U = 7'b111_0011	;
+ 		4'd13 : o_seg_W = 7'b111_0011	;
+
+		default : o_seg = 7'b000_0000	; 
+	endcase 
+end
+
+
+endmodule*/
+
+
+//	--------------------------------------------------
 //	0~59 --> 2 Separated Segments
 //	--------------------------------------------------
 module	double_fig_sep(
@@ -370,13 +407,25 @@ module	hrminsec(	o_sec,
 output	[5:0]	o_sec		;
 output	[5:0]	o_min		;
 output	[5:0]	o_hr		;
+
+output		o_day		;
+output		o_date		;
+output		o_month		;
+output		o_year		;
+
 output		o_max_hit_sec	;
 output		o_max_hit_min	;
 output		o_max_hit_hr	;
+output		o_max_hit_date	;
+output		o_max_hit_month	;
+output		o_max_hit_year	;
 
 input		i_sec_clk	;
 input		i_min_clk	;
 input		i_hr_clk	;
+input		i_date_clk	;
+input		i_month_clk	;
+input		i_year_clk	;
 
 input		clk		;
 input		rst_n		;
@@ -398,9 +447,59 @@ hms_cnt		u1_hms_cnt(
 hms_cnt		u2_hms_cnt(
 		.o_hms_cnt	( o_hr		),
 		.o_max_hit	( o_max_hit_hr	),
-		.i_max_cnt	( 6'd23		),
+		.i_max_cnt	( 5'd23		),
 		.clk		( i_hr_clk	),
 		.rst_n		( rst_n		));
+
+hms_cnt		u3_hms_cnt(
+		.o_hms_cnt	( o_date	),
+		.o_max_hit	( o_max_hit_date),
+		.i_max_cnt	( i_max_cnt_date),
+		.clk		( i_date_clk	),
+		.rst_n		( rst_n		));
+
+reg [1:0] i_max_cnt_date			;
+
+always @(posedge i_date_clk or negedge rst_n ) begin
+	if(rst_n == 1'b0)begin
+		i_max_cnt_date <= 2'd0 ;
+	end else begin
+		if(o_month >= 4'd1 or o_month >= 4'd3 or o_month >= 4'd5 or o_month >= 4'd7 or o_month >= 4'd8 or o_month >= 4'd10 or o_month >= 4'd12)begin
+			i_max_cnt_date <= 2'd0 ;
+		end else begin
+			if(o_month >= 4'd2)begin
+				i_max_cnt_date <= 2'd2 ;
+			end else begin
+				i_max_cnt_date <= 2'd1 ;
+			end
+		end
+	end
+endmodule
+	
+always @(i_max_cnt_date) begin
+	case (i_max_cnt_date) 
+		2'd0 : i_max_cnt_date = 5'd31	;
+		2'd1 : i_max_cnt_date = 5'd30	;
+		2'd2 : i_max_cnt_date = 5'd28	;
+	endcase
+end
+
+hms_cnt		u4_hms_cnt(
+		.o_hms_cnt	( o_month	),
+		.o_max_hit	( o_max_hit_month),
+		.i_max_cnt	( 4'd11		),
+		.clk		( i_month_clk	),
+		.rst_n		( rst_n		));
+
+hms_cnt		u5_hms_cnt(
+		.o_hms_cnt	( o_year	),
+		.o_max_hit	( o_max_hit_year),
+		.i_max_cnt	(		),
+		.clk		( i_year_clk	),
+		.rst_n		( rst_n		));
+
+
+
 
 endmodule
 
@@ -427,9 +526,15 @@ input		rst_n	;
 wire		o_hr_clk	;
 wire		o_sec_clk	;
 wire		o_min_clk	;
+wire		o_date_clk	;
+wire		o_month_clk	;
+wire		o_year_clk	;
 wire		i_max_hit_sec	;
 wire		i_max_hit_min	;
 wire		i_max_hit_hr	;
+wire		i_max_hit_date	;
+wire		i_max_hit_month	;
+wire		i_max_hit_year	;
 
 controller	u_ctrl(
 					.o_mode		(	),
@@ -445,7 +550,7 @@ controller	u_ctrl(
 					.i_sw2	(i_sw2),
 					.clk	(clk),
 					.rst_n	(rst_n)	);
-wire	[5:0]	o_hr	;
+wire	[4:0]	o_hr	;
 wire	[5:0]	o_min	;
 wire	[5:0]	o_sec	;
 
@@ -494,7 +599,7 @@ fnd_dec		u0_fnd_dec(
 				.i_num(o_left_0));
 fnd_dec		u1_fnd_dec(
 				.o_seg(o_seg_1),
-				.i_num(o_right_0));
+				.i_num(o_right_0) );
 
 fnd_dec		u2_fnd_dec(
 				.o_seg(o_seg_2),
@@ -526,6 +631,7 @@ led_disp	u_led_disp(
 
 
 endmodule
+
 
 
 
