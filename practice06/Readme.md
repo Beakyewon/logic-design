@@ -18,10 +18,10 @@
 ## 결과
 ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/practice06%20wave.PNG)
-### ** 동작 사진 **
+### ** Wave form 동작 사진 **
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTQ3NTU2NDIsLTExNDIyMjY5MzMsMT
-U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbNzg1ODk2MTQ1LC0xMTQyMjI2OTMzLDE1Nj
+A0MDM0OTgsLTk2NTA4ODA1N119
 -->
