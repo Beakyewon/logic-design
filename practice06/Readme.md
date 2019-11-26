@@ -10,13 +10,14 @@ Data code : 송신 데이터
 
 ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
 ### ** Wave form 동작 사진 **
-![](https://github.com/Beakyewon/logic-design/blob/master/practice10/graph.PNG)
+![](https://github.com/Beakyewon/logic-design/blob/master/practice10/graph.PNG)leader code (ir_rx)
 
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice10/GRAPH%20B.PNG)
-32bit까지 count 되었을때 
+32bit까지 카운트 되었을때 다시 0으로 돌아가는 모습을 통해
+주기가 잘 설정되었음을 볼 수 있었음. 
 
 최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 24bit 데이터가 전달되는 모습을 볼 수 있었다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Mzc3Nzk3NTcsLTExNDIyMjY5MzMsMT
-U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbLTYyMTg1MzU0NiwtMTE0MjIyNjkzMywxNT
+YwNDAzNDk4LC05NjUwODgwNTddfQ==
 -->
