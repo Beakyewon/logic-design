@@ -1,4 +1,4 @@
-# Lab 06
+# Lab 10
 ## 실습 내용
 ### **7 – Segment Display Decoder (개별)**
 #### **Submodule 1** : 0~9의 값을 갖는 4bit 입력 신호를 받아 7bit FND  segment  값 출력
@@ -20,6 +20,6 @@
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MTczNjg5OSwxNTYwNDAzNDk4LC05Nj
-UwODgwNTddfQ==
+eyJoaXN0b3J5IjpbNTYwODI1NDc2LDE1NjA0MDM0OTgsLTk2NT
+A4ODA1N119
 -->
