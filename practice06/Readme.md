@@ -5,7 +5,7 @@
 #### **Submodule 2** : 0~59의 값을 갖는 6bit 입력 신호를 받아 십의 자리 수와 일의 자리 수를 각각 4bit으로 출력
 #### **Top Module** : 저번 시간에 만든 second counter  및 Submodule 1/2를 이용하여 실습 장비의 LED에 맞는 Display Module 설계
 ### FPGA 실습 (팀) : 6개의 LED 중 가장 오른쪽 2개의 LED에 1초간격으로 0~59까지 증가하는 Counter 값 Display
-: NCO(Numerical Controlled Oscillator) 입력 바꿔서 4초 간격으로 증가하는 코드 테스트
+: Leader code, Custom code, Data code  wave form을 통해 ㅎ
 ## 퀴즈 
 ### 아래 코드 일부를 수정하여 다음을 구하시오
 ```verilog wire  [41:0] six_digit_seg; assign       six_digit_seg = { 4{7'b0000000}, seg_left, seg_right } ``` 
@@ -20,6 +20,6 @@
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDIyMjY5MzMsMTU2MDQwMzQ5OCwtOT
-Y1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbNDAxNDY3NDUzLC0xMTQyMjI2OTMzLDE1Nj
+A0MDM0OTgsLTk2NTA4ODA1N119
 -->
