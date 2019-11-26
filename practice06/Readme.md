@@ -16,8 +16,8 @@ Data code : 송신 데이터
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice10/GRAPH%20B.PNG)
 32bit까지 카운트 되었을때 다시 0으로 돌아가는 모습을 통해 costom code, data code가 32bit로 설정되었음을 볼 수 있었음. 
 
-최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 6개의 7세그24bit 데이터가 전달되는 모습을 볼 수 있었다.
+최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 6개의 7세그먼트에 24bit 데이터가 전달되는 모습을 볼 수 있었다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzODAxMTEyNywtMTAwNjEzNjM4NywtMT
-E0MjIyNjkzMywxNTYwNDAzNDk4LC05NjUwODgwNTddfQ==
+eyJoaXN0b3J5IjpbMzM4MzUyMDQzLC0xMDA2MTM2Mzg3LC0xMT
+QyMjI2OTMzLDE1NjA0MDM0OTgsLTk2NTA4ODA1N119
 -->
