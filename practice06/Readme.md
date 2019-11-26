@@ -1,8 +1,11 @@
 # Lab 10
 ## 실습 내용
-### **IR controller**
+### **IR controller 기본지식**
 #### **IR 송신부 , 수신부로 구성 **
-Leader code : 프레임의 모드를
+Leader code : 프레임의 모드 선택
+Custom code : 특정 회사를 나타내줌
+Data code : 송신 데이터
+
  Leader code, Custom code, Data code를  wave form을 통해 확인하고자 한다. 
 
 ## 퀴즈 
@@ -20,6 +23,6 @@ Leader code : 프레임의 모드를
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTUyMzMyMTIsLTExNDIyMjY5MzMsMT
-U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbOTQzMzk2ODYyLC0xMTQyMjI2OTMzLDE1Nj
+A0MDM0OTgsLTk2NTA4ODA1N119
 -->
