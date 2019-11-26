@@ -18,10 +18,10 @@
 ## 결과
 ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/practice06%20wave.PNG)
-### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
+### ** 동작 사진 **
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NjY5MTYwNiwtMTE0MjIyNjkzMywxNT
-YwNDAzNDk4LC05NjUwODgwNTddfQ==
+eyJoaXN0b3J5IjpbLTEyMTQ3NTU2NDIsLTExNDIyMjY5MzMsMT
+U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
 -->
