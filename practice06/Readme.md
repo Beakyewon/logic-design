@@ -7,6 +7,8 @@ Custom code : 특정 회사를 나타내줌
 Data code : 송신 데이터
 
 -> Leader code, Custom code, Data code를  wave form을 통해 확인하고자 한다. 
+testbe
+
 
 ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
 ### ** Wave form 동작 사진 **
@@ -18,6 +20,6 @@ Data code : 송신 데이터
 
 최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 24bit 데이터가 전달되는 모습을 볼 수 있었다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDYxMzYzODcsLTExNDIyMjY5MzMsMT
-U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbLTIwNzgyNTU0NTIsLTEwMDYxMzYzODcsLT
+ExNDIyMjY5MzMsMTU2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
 -->
