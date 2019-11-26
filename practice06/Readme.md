@@ -13,9 +13,10 @@ Data code : 송신 데이터
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice10/graph.PNG)
 
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice10/GRAPH%20B.PNG)
+32bit까지 count 되었을때 
 
-최종적으로 F
+최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 24bit 데이터가 전달되는 모습을 볼 수 있었다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2OTQ0MzEzNCwtMTE0MjIyNjkzMywxNT
-YwNDAzNDk4LC05NjUwODgwNTddfQ==
+eyJoaXN0b3J5IjpbLTE5Mzc3Nzk3NTcsLTExNDIyMjY5MzMsMT
+U2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
 -->
