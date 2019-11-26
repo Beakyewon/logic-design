@@ -20,5 +20,6 @@
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2MDQwMzQ5OCwtOTY1MDg4MDU3XX0=
+eyJoaXN0b3J5IjpbLTc2MTczNjg5OSwxNTYwNDAzNDk4LC05Nj
+UwODgwNTddfQ==
 -->
