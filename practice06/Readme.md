@@ -1,6 +1,6 @@
 # Lab 10
 ## 실습 내용
-### **7 – Segment Display Decoder (개별)**
+### **IR controller**
 #### **Submodule 1** : 0~9의 값을 갖는 4bit 입력 신호를 받아 7bit FND  segment  값 출력
 #### **Submodule 2** : 0~59의 값을 갖는 6bit 입력 신호를 받아 십의 자리 수와 일의 자리 수를 각각 4bit으로 출력
 #### **Top Module** : 저번 시간에 만든 second counter  및 Submodule 1/2를 이용하여 실습 장비의 LED에 맞는 Display Module 설계
@@ -20,6 +20,6 @@
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYwODI1NDc2LDE1NjA0MDM0OTgsLTk2NT
-A4ODA1N119
+eyJoaXN0b3J5IjpbLTExNDIyMjY5MzMsMTU2MDQwMzQ5OCwtOT
+Y1MDg4MDU3XX0=
 -->
