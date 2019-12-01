@@ -734,23 +734,27 @@ hms_cnt		u_hms_cnt_alarm_hr(
 //	MODE_DATE
 
 reg	[5:0]	i_max_cnt_date	;
-always @(*) begin
-	case(o_month)
-		4'd1 : i_max_cnt_date = 5'd31	;
-		4'd2 : i_max_cnt_date = 5'd28	;
-		4'd3 : i_max_cnt_date = 5'd31	;
-		4'd4 : i_max_cnt_date = 5'd30	;
-		4'd5 : i_max_cnt_date = 5'd31	;
-		4'd6 : i_max_cnt_date = 5'd30	;
-		4'd7 : i_max_cnt_date = 5'd31	;
-		4'd8 : i_max_cnt_date = 5'd31	;
-		4'd9 : i_max_cnt_date = 5'd30	;
-		4'd10 : i_max_cnt_date = 5'd31	;
-		4'd11 : i_max_cnt_date = 5'd30	;
-		4'd12 : i_max_cnt_date = 5'd31	;
-		default : i_max_cnt_date = 5'd31;
-	endcase
+always @(*)
+	if(i_mode ==3'b100 || i_mode == 3'b101) begin
+		case(o_min)
+			4'd1 : i_max_cnt_date = 5'd31	;
+			4'd2 : i_max_cnt_date = 5'd28	;
+			4'd3 : i_max_cnt_date = 5'd31	;
+			4'd4 : i_max_cnt_date = 5'd30	;
+			4'd5 : i_max_cnt_date = 5'd31	;
+			4'd6 : i_max_cnt_date = 5'd30	;
+			4'd7 : i_max_cnt_date = 5'd31	;
+			4'd8 : i_max_cnt_date = 5'd31	;
+			4'd9 : i_max_cnt_date = 5'd30	;
+			4'd10 : i_max_cnt_date = 5'd31	;
+			4'd11 : i_max_cnt_date = 5'd30	;
+			4'd12 : i_max_cnt_date = 5'd31	;
+			default : i_max_cnt_date = 5'd31;
+		endcase
+	end else begin
+	o_min <= o_min	;
 end
+
 
 wire	[5:0]	date		;
 wire		o_max_hit_date	;
@@ -826,7 +830,7 @@ always @ (*) begin
 
 		end
 	endcase
-end
+end	
 
 reg		o_alarm		; 
 always @ (posedge clk or negedge rst_n) begin
@@ -1087,7 +1091,6 @@ module	top(
 		i_sw2,
 		i_sw3,
 		i_sw4,
-		i_sw5,
 		i_sw6,
 		i_sw7,
 		clk,
@@ -1102,8 +1105,7 @@ input		i_sw0		;
 input		i_sw1		;
 input		i_sw2		;
 input		i_sw3		;
-input		i_sw4		;
-input		i_sw5		;		
+input		i_sw4		;	
 input		i_sw6		;
 input		i_sw7		;
 
@@ -1137,7 +1139,6 @@ controller	u_controller(
 				.o_position	(o_position),
 				.o_switch_screen(o_switch_screen),
 				.o_alarm_en	(o_alarm_en),
-				.o_change_mode	(o_change_mode),
 				.o_sec_clk	(o_sec_clk),
 				.o_min_clk	(o_min_clk),
 				.o_hr_clk	(o_hr_clk),
@@ -1162,6 +1163,7 @@ controller	u_controller(
 				.i_sw7	(i_sw7),
 				.clk	(clk),
 				.rst_n	(rst_n));
+
 wire	[5:0]	o_min	;
 wire	[5:0]	o_sec	;
 wire	[5:0]	o_hr	;
@@ -1173,9 +1175,6 @@ wire		o_alarm_0 ;
 hrminsec	u_hrminsec(	.o_sec		(o_sec),
 				.o_min		(o_min),
 				.o_hr		(o_hr),
-				.o_date		(o_date),
-				.o_month	(o_month),
-				.o_year		(o_year),
 				.o_max_hit_sec	(i_max_hit_sec),
 				.o_max_hit_min	(i_max_hit_min),
 				.o_max_hit_hr	(i_max_hit_hr),
@@ -1197,6 +1196,7 @@ hrminsec	u_hrminsec(	.o_sec		(o_sec),
 				.i_alarm_en	(o_alarm_en),
 				.clk		(clk),
 				.rst_n		(rst_n));
+
 
 /*dateday		u_dateday(
 				.o_date		(o_date),
