@@ -23,5 +23,5 @@ assign			  six_digit_seg = { seg_left, seg_right, seg_left, seg_right, seg_left,
 ### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
 ![](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNzEwNjI3M119
+eyJoaXN0b3J5IjpbMjk0ODUzODQ3LC0zMzcxMDYyNzNdfQ==
 -->
