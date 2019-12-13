@@ -1,23 +1,25 @@
-# Lab 10
+# Lab 06
 ## 실습 내용
-### **IR controller **
-#### **IR 송신부 , 수신부로 구성 **
-Leader code : 프레임의 모드 선택
-Custom code : 특정 회사를 나타내줌
-Data code : 송신 데이터
+### **7 – Segment Display Decoder (개별)**
+#### **Submodule 1** : 0~9의 값을 갖는 4bit 입력 신호를 받아 7bit FND  segment  값 출력
+#### **Submodule 2** : 0~59의 값을 갖는 6bit 입력 신호를 받아 십의 자리 수와 일의 자리 수를 각각 4bit으로 출력
+#### **Top Module** : 저번 시간에 만든 second counter  및 Submodule 1/2를 이용하여 실습 장비의 LED에 맞는 Display Module 설계
+### FPGA 실습 (팀) : 6개의 LED 중 가장 오른쪽 2개의 LED에 1초간격으로 0~59까지 증가하는 Counter 값 Display
+: NCO(Numerical Controlled Oscillator) 입력 바꿔서 4초 간격으로 증가하는 코드 테스트
+## 퀴즈 
+### 아래 코드 일부를 수정하여 다음을 구하시오
+ ```verilog wire  [41:0] six_digit_seg; assign       six_digit_seg = { 4{7'b0000000}, seg_left, seg_right } ``` 
+ > Q1 - 고정 LED (왼쪽 4개) AAAA 출력 : `AA_AA_00`, `AA_AA_01`, `AA_AA_02`, … 순으로 LED 변경
+`Please fill up your source`
+> Q2 - 고정 LED 없이 2개의 LED 단위로 1초 Counter 값 표시 : `00_00_00`, `01_01_01`, `02_02_02`, … 순으로 LED 변경
+`Please fill up your source`
+## 결과
+ ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
+`Please fill up your source`
+### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
+![][https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG](https://github.com/Beakyewon/logic-design/blob/master/practice06/Quiz.PNG)
 
--> testbench를 통해 신호 입력후 leader code와 32bit custom code, data code를 확인
 
-
-### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
-### ** leader code **
-![](https://github.com/Beakyewon/logic-design/blob/master/practice10/graph.PNG)leader code (ir_rx)가 high인 구간에서의 시간이 8999 (9ms), low인 구간이 559임을 볼수있었음.
-
-![](https://github.com/Beakyewon/logic-design/blob/master/practice10/GRAPH%20B.PNG)
-32bit까지 카운트 되었을때 다시 0으로 돌아가는 모습을 통해 costom code, data code가 32bit로 설정되었음을 볼 수 있었음. 
-
-최종적으로 FPGA를 통해, IR 리모컨을 눌렀을때 6개의 7세그먼트에 24bit 데이터가 전달되는 모습을 볼 수 있었다.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM4MzUyMDQzLC0xMDA2MTM2Mzg3LC0xMT
-QyMjI2OTMzLDE1NjA0MDM0OTgsLTk2NTA4ODA1N119
+eyJoaXN0b3J5IjpbLTMzNzEwNjI3M119
 -->
